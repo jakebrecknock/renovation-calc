@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Renovation Estimate Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1, h2, h3 { color: #333; }
+    .section { margin-bottom: 40px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-weight: bold; }
+    select, input[type="number"] { display: block; margin-top: 5px; padding: 5px; }
+    .subtotal { margin-top: 10px; font-weight: bold; }
+    .category-total { font-size: 1.1em; color: #444; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Home Renovation Estimate Calculator</h1>
+
+  <form id="estimateForm">
+
+    <!-- Bathroom Section -->
+    <div class="section">
+      <h2>Bathroom</h2>
+      <div class="form-group">
+        <label for="bathroomTile">Tile Type:</label>
+        <select id="bathroomTile">
+          <option value="0">--Select--</option>
+          <option value="18">Herringbone ($18/sqft)</option>
+          <option value="6">Glazed Wall Tile ($6/sqft)</option>
+          <option value="4">Floor Tile ($4/sqft)</option>
+        </select>
+        <input type="number" id="bathroomTileQty" placeholder="Tile area (sqft)" />
+      </div>
+
+      <div class="form-group">
+        <label for="bathroomVanity">Vanity Type:</label>
+        <select id="bathroomVanity">
+          <option value="0">--Select--</option>
+          <option value="300">Single ($300)</option>
+          <option value="2000">Double ($2000)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="heatedFloor">Heated Floor (sqft):</label>
+        <input type="number" id="heatedFloor" placeholder="Area (sqft)" />
+      </div>
+
+      <div class="form-group">
+        <label for="gfcis">GFCI Outlets:</label>
+        <input type="number" id="gfcis" placeholder="Qty" />
+      </div>
+
+      <p class="category-total">Bathroom Subtotal: $<span id="bathroomTotal">0.00</span></p>
+    </div>
+
+    <!-- Kitchen Section -->
+    <div class="section">
+      <h2>Kitchen</h2>
+      <div class="form-group">
+        <label for="kitchenCountertop">Countertop Type:</label>
+        <select id="kitchenCountertop">
+          <option value="0">--Select--</option>
+          <option value="45">Laminate ($45/sqft)</option>
+          <option value="120">Quartz ($120/sqft)</option>
+          <option value="110">Granite ($110/sqft)</option>
+          <option value="80">Butcher Block ($80/sqft)</option>
+        </select>
+        <input type="number" id="kitchenCountertopQty" placeholder="Countertop area (sqft)" />
+      </div>
+
+      <div class="form-group">
+        <label for="kitchenCabinets">Cabinets:</label>
+        <select id="kitchenCabinets">
+          <option value="0">--Select--</option>
+          <option value="300">Stock ($300/ft)</option>
+          <option value="900">Custom ($900/ft)</option>
+        </select>
+        <input type="number" id="kitchenCabinetsQty" placeholder="Length (ft)" />
+      </div>
+
+      <p class="category-total">Kitchen Subtotal: $<span id="kitchenTotal">0.00</span></p>
+    </div>
+
+    <!-- Flooring Section -->
+    <div class="section">
+      <h2>Flooring</h2>
+      <div class="form-group">
+        <label for="floorType">Flooring Type:</label>
+        <select id="floorType">
+          <option value="0">--Select--</option>
+          <option value="10">Solid Hardwood ($10/sqft)</option>
+          <option value="8">Engineered Hardwood ($8/sqft)</option>
+          <option value="4.5">Laminate ($4.50/sqft)</option>
+          <option value="6">LVP ($6/sqft)</option>
+          <option value="6.5">Porcelain Tile ($6.50/sqft)</option>
+          <option value="9">Stone Tile ($9/sqft)</option>
+          <option value="5.5">Carpet ($5.50/sqft)</option>
+        </select>
+        <input type="number" id="floorQty" placeholder="Floor area (sqft)" />
+      </div>
+
+      <p class="category-total">Flooring Subtotal: $<span id="floorTotal">0.00</span></p>
+    </div>
+
+    
+    <!-- Decking Section -->
+    <div class="section">
+      <h2>Decking</h2>
+      <div class="form-group">
+        <label for="deckMaterial">Deck Material:</label>
+        <select id="deckMaterial">
+          <option value="0">--Select--</option>
+          <option value="16">Pressure-Treated Lumber ($16/sqft)</option>
+          <option value="20">Cedar ($20/sqft)</option>
+          <option value="28">Composite ($28/sqft)</option>
+          <option value="32">PVC ($32/sqft)</option>
+        </select>
+        <input type="number" id="deckArea" placeholder="Deck area (sqft)" />
+      </div>
+      <p class="category-total">Decking Subtotal: $<span id="deckingTotal">0.00</span></p>
+    </div>
+
+    <!-- Garage Section -->
+    <div class="section">
+      <h2>Garage</h2>
+      <div class="form-group">
+        <label for="epoxyFloor">Epoxy Floor (sqft):</label>
+        <input type="number" id="epoxyFloor" placeholder="Floor area (sqft)" />
+      </div>
+      <p class="category-total">Garage Subtotal: $<span id="garageTotal">0.00</span></p>
+    </div>
+
+    <!-- Basement Section -->
+    <div class="section">
+      <h2>Basement</h2>
+      <div class="form-group">
+        <label for="basementFinish">Basement Finish Area (sqft):</label>
+        <input type="number" id="basementFinish" placeholder="Area (sqft)" />
+      </div>
+      <p class="category-total">Basement Subtotal: $<span id="basementTotal">0.00</span></p>
+    </div>
+
+    <!-- Glass Section -->
+    <div class="section">
+      <h2>Glass</h2>
+      <div class="form-group">
+        <label for="windowsQty">Standard Windows:</label>
+        <input type="number" id="windowsQty" placeholder="Qty" />
+      </div>
+      <div class="form-group">
+        <label for="showerGlassQty">Shower Glass Installations:</label>
+        <input type="number" id="showerGlassQty" placeholder="Qty" />
+      </div>
+      <p class="category-total">Glass Subtotal: $<span id="glassTotal">0.00</span></p>
+    </div>
+
+    <!-- Miscellaneous Repairs Section -->
+    <div class="section">
+      <h2>Miscellaneous Repairs</h2>
+      <div class="form-group">
+        <label for="drywallPatchQty">Large Drywall Patches:</label>
+        <input type="number" id="drywallPatchQty" placeholder="Qty" />
+      </div>
+      <p class="category-total">Miscellaneous Subtotal: $<span id="miscTotal">0.00</span></p>
+    </div>
+
+
+    <button type="button" onclick="calculateEstimate()">Calculate Estimate</button>
+  </form>
+
+  <h2>Total Estimate: $<span id="grandTotal">0.00</span></h2>
+
+  <script src="full_script.js"></script>
+</body>
+</html>
